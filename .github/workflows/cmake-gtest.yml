@@ -37,10 +37,8 @@ jobs:
         run: |
           mkdir build
           cd build
-          cmake -G "MinGW Makefiles" ^
-            -DCMAKE_TOOLCHAIN_FILE="${{ env.VCPKG_INSTALLATION_ROOT }}/scripts/buildsystems/vcpkg.cmake" ^
-            -DVCPKG_TARGET_TRIPLET=x64-mingw-dynamic ^
-            ..
+          cmake -G "MinGW Makefiles" -DCMAKE_TOOLCHAIN_FILE="/scripts/buildsystems/vcpkg.cmake" -DVCPKG_TARGET_TRIPLET=x64-mingw-dynamic ..
+
       
       - name: Build with CMake
         run: |
