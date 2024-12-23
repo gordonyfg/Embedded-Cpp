@@ -1,0 +1,5 @@
+C:/Users/Gordon/Documents/Developer/2024_embedded_c++/gtest_MinGW64_vscode_win_helloworld/build/CMakeFiles/helloworld.dir
+C:/Users/Gordon/Documents/Developer/2024_embedded_c++/gtest_MinGW64_vscode_win_helloworld/build/CMakeFiles/tests.dir
+C:/Users/Gordon/Documents/Developer/2024_embedded_c++/gtest_MinGW64_vscode_win_helloworld/build/CMakeFiles/test.dir
+C:/Users/Gordon/Documents/Developer/2024_embedded_c++/gtest_MinGW64_vscode_win_helloworld/build/CMakeFiles/edit_cache.dir
+C:/Users/Gordon/Documents/Developer/2024_embedded_c++/gtest_MinGW64_vscode_win_helloworld/build/CMakeFiles/rebuild_cache.dir
