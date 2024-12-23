@@ -2,14 +2,13 @@ name: CMake + GTest CI
 
 on:
   push:
-    branches: [ "main" ]  # or your branch
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
 jobs:
   build-and-test:
     runs-on: windows-latest
-
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
@@ -29,10 +28,10 @@ jobs:
         uses: lukka/run-vcpkg@v11
         with:
           vcpkgArguments: "install gtest --triplet x64-mingw-dynamic"
-          # The above command installs GTest for the MinGW-w64 triplet
 
       - name: Configure with CMake
         run: |
+          cd gtest_MinGW64_vscode_win_helloworld
           mkdir build
           cd build
           cmake -G "MinGW Makefiles" ^
@@ -42,10 +41,10 @@ jobs:
 
       - name: Build with CMake
         run: |
-          cd build
+          cd gtest_MinGW64_vscode_win_helloworld/build
           cmake --build .
 
       - name: Run tests
         run: |
-          cd build
+          cd gtest_MinGW64_vscode_win_helloworld/build
           ctest -V
