@@ -47,6 +47,7 @@ jobs:
         cmake -G "MinGW Makefiles" \
           -DCMAKE_TOOLCHAIN_FILE="${GITHUB_WORKSPACE}/vcpkg/scripts/buildsystems/vcpkg.cmake" \
           -DVCPKG_TARGET_TRIPLET=x64-mingw-dynamic \
+          -DCMAKE_PREFIX_PATH="${GITHUB_WORKSPACE}/vcpkg/installed/x64-mingw-dynamic" \
           ..
 
     - name: Build
