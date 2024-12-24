@@ -36,7 +36,6 @@ jobs:
       - name: Configure with CMake
         run: |
           mkdir build
-          cd build
           cmake -G "MinGW Makefiles" -DCMAKE_TOOLCHAIN_FILE="/scripts/buildsystems/vcpkg.cmake" -DVCPKG_TARGET_TRIPLET=x64-mingw-dynamic ..
 
       
