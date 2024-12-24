@@ -6,3 +6,6 @@ Example
 2. LRU
 3. Merge_SLL
 4. heap_stack
+
+Leetcode
+1. LC167
