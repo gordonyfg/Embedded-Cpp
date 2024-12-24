@@ -35,9 +35,11 @@ jobs:
 
       - name: Configure with CMake
         run: |
-          cd gtest_MinGW64_vscode_win_helloworld
           mkdir build
-          cmake -G "MinGW Makefiles" -DCMAKE_TOOLCHAIN_FILE="/scripts/buildsystems/vcpkg.cmake" -DVCPKG_TARGET_TRIPLET=x64-mingw-dynamic ..
+          cd build
+          - name: Configure with CMake
+          run: cmake -G "MinGW Makefiles" -DCMAKE_TOOLCHAIN_FILE="${{ env.VCPKG_INSTALLATION_ROOT }}/scripts/buildsystems/vcpkg.cmake" -DVCPKG_TARGET_TRIPLET=x64-mingw-dynamic ../gtest_MinGW64_vscode_win_helloworld
+
 
       
       - name: Build with CMake
