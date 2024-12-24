@@ -1,0 +1,51 @@
+name: CMake + GTest CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Install MSYS2
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW64
+          update: true
+          install: >-
+            base-devel
+            mingw-w64-x86_64-toolchain
+            mingw-w64-x86_64-cmake
+          path-type: mingw64
+
+      - name: Set up vcpkg
+        uses: lukka/run-vcpkg@v11
+        with:
+          # Tells the action to look for vcpkg[-configuration].json and install dependencies
+          runVcpkgInstall: true
+          vcpkgJsonGlob: '**/vcpkg.json'                 
+          vcpkgConfigurationJsonGlob: '**/vcpkg-configuration.json'
+          # The above ensures we use the pinned baseline in vcpkg-configuration.json
+
+      - name: Configure with CMake
+        run: |
+          mkdir build
+          cd build
+          cmake -G "MinGW Makefiles" -DCMAKE_TOOLCHAIN_FILE="/scripts/buildsystems/vcpkg.cmake" -DVCPKG_TARGET_TRIPLET=x64-mingw-dynamic ..
+
+      
+      - name: Build with CMake
+        run: |
+          cd build
+          cmake --build .
+      
+      - name: Run tests
+        run: |
+          cd build
+          ctest -V
