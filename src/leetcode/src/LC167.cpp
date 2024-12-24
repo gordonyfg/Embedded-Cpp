@@ -45,10 +45,11 @@ The tests are generated such that there is exactly one solution. */
 #include <iostream>
 #include <vector>
 using namespace std;
+#include "LC167.h"
 
-class Solution {
-public:
-    vector<int> twoSum(vector<int>& numbers, int target) {
+// class Solution {
+// public:
+    vector<int> Solution::twoSum(vector<int>& numbers, int target) {
         vector<int> result = {0, 0};
         int left = 0;
         int right = numbers.size()-1;
@@ -64,57 +65,57 @@ public:
             }
         }
     }
-};
+// };
 
-//Local Testing
-// Function to print the results
-void printResult(const vector<int>& result) {
-    cout << "[";
-    for (size_t i = 0; i < result.size(); ++i) {
-        cout << result[i];
-        if (i != result.size() - 1) cout << ", ";
-    }
-    cout << "]" << endl;
-}
+// //Local Testing
+// // Function to print the results
+// void printResult(const vector<int>& result) {
+//     cout << "[";
+//     for (size_t i = 0; i < result.size(); ++i) {
+//         cout << result[i];
+//         if (i != result.size() - 1) cout << ", ";
+//     }
+//     cout << "]" << endl;
+// }
 
-// Main function for testing
-int main() {
-    Solution solution;
+// // Main function for testing
+// int main() {
+//     Solution solution;
 
-    // Test cases
-    vector<vector<int>> testNumbers = {
-        {2, 7, 11, 15},
-        {1, 2, 3, 4, 4, 9, 56, 90},
-        {1, 3, 5, 6},
-        {-10, -5, -2, -1, 0, 3, 8}
-    };
+//     // Test cases
+//     vector<vector<int>> testNumbers = {
+//         {2, 7, 11, 15},
+//         {1, 2, 3, 4, 4, 9, 56, 90},
+//         {1, 3, 5, 6},
+//         {-10, -5, -2, -1, 0, 3, 8}
+//     };
 
-    vector<int> testTargets = {9, 8, 9, -9};
+//     vector<int> testTargets = {9, 8, 9, -9};
 
-    vector<vector<int>> expectedResults = {
-        {1, 2},
-        {4, 5},
-        {2, 4},
-        {1, 6}
-    };
+//     vector<vector<int>> expectedResults = {
+//         {1, 2},
+//         {4, 5},
+//         {2, 4},
+//         {1, 6}
+//     };
 
-    // Run test cases
-    for (size_t i = 0; i < testNumbers.size(); ++i) {
-        vector<int> result = solution.twoSum(testNumbers[i], testTargets[i]);
-        cout << "Test Case " << i + 1 << ": ";
-        cout << "Input numbers = ";
-        printResult(testNumbers[i]);
-        cout << "Target = " << testTargets[i] << endl;
-        cout << "Expected = ";
-        printResult(expectedResults[i]);
-        cout << "Output = ";
-        printResult(result);
-        cout << (result == expectedResults[i] ? "✅ Passed" : "❌ Failed") << endl;
-        cout << "---------------------------" << endl;
-    }
+//     // Run test cases
+//     for (size_t i = 0; i < testNumbers.size(); ++i) {
+//         vector<int> result = solution.twoSum(testNumbers[i], testTargets[i]);
+//         cout << "Test Case " << i + 1 << ": ";
+//         cout << "Input numbers = ";
+//         printResult(testNumbers[i]);
+//         cout << "Target = " << testTargets[i] << endl;
+//         cout << "Expected = ";
+//         printResult(expectedResults[i]);
+//         cout << "Output = ";
+//         printResult(result);
+//         cout << (result == expectedResults[i] ? "✅ Passed" : "❌ Failed") << endl;
+//         cout << "---------------------------" << endl;
+//     }
 
-    return 0;
-}
+//     return 0;
+// }
 
 /* Test Result:
 

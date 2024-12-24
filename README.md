@@ -9,3 +9,33 @@ Example
 
 Leetcode
 1. LC167
+
+2024-12-23 Folder Structure Explain
+To keep project structured and maintainable as i work through 
+LeetCode questions and integrate GTest with CI:
+```
+.
+├── .github/
+│   └── workflows/
+│       └── cmake-gtest.yml      # GitHub Actions CI configuration
+├── .vscode/
+│   └── (VS Code settings files)
+├── cmake/                      # CMake configuration files (optional, reusable modules)
+├── gtest/                      # GTest setup and tests
+│   ├── src/
+│   │   └── main.cpp            # Main file for GTest runner
+│   ├── tests/
+│   │   ├── test_LC167.cpp      # Unit tests for LC167
+│   │   └── (other tests here)
+│   └── CMakeLists.txt          # CMake configuration for GTest setup
+├── leetcode/
+│   ├── src/
+│   │   ├── LC167.cpp           # Solution for LC167
+│   │   ├── LC168.cpp           # (Other solutions)
+│   │   └── ...
+│   ├── include/                # Shared headers for solutions, if needed
+│   ├── README.md
+│   └── CMakeLists.txt          # CMake configuration for LeetCode solutions
+├── CMakeLists.txt              # Top-level CMake configuration
+└── README.md                   # Project documentation
+```
