@@ -38,6 +38,8 @@ jobs:
       run: |
         git clone https://github.com/Microsoft/vcpkg.git
         .\vcpkg\bootstrap-vcpkg.bat
+        .\vcpkg\vcpkg.exe install gtest:x64-mingw-dynamic
+
 
     - name: Configure with CMake
       shell: msys2 {0}
