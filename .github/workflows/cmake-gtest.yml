@@ -25,17 +25,21 @@ jobs:
           path-type: mingw64
 
       - name: Set up vcpkg
+        # If you want to install packages from vcpkg.json, continue using runVcpkgInstall
         uses: lukka/run-vcpkg@v11
         with:
           runVcpkgInstall: true
-          vcpkgJsonGlob: '**/vcpkg.json'
-          vcpkgConfigurationJsonGlob: '**/vcpkg-configuration.json'
+          # Ensure you are installing or specifying x64-mingw-dynamic in your vcpkg.json or configuration
 
+      # Now we run inside MSYS2 so MinGW tools are on PATH
       - name: Configure with CMake (MSYS2 shell)
         shell: msys2 {0}
         run: |
           mkdir build
           cd build
+          # This environment variable is provided by lukka/run-vcpkg
+          # Typically: "D:\a\YourRepo\YourRepo\vcpkg"
+          # Use the correct path to vcpkg.cmake:
           cmake -G "MinGW Makefiles" \
             -DCMAKE_TOOLCHAIN_FILE="${{ env.VCPKG_INSTALLATION_ROOT }}/scripts/buildsystems/vcpkg.cmake" \
             -DVCPKG_TARGET_TRIPLET=x64-mingw-dynamic \
