@@ -27,26 +27,28 @@ jobs:
       - name: Set up vcpkg
         uses: lukka/run-vcpkg@v11
         with:
-          # Tells the action to look for vcpkg[-configuration].json and install dependencies
           runVcpkgInstall: true
-          vcpkgJsonGlob: '**/vcpkg.json'                 
+          vcpkgJsonGlob: '**/vcpkg.json'
           vcpkgConfigurationJsonGlob: '**/vcpkg-configuration.json'
-          # The above ensures we use the pinned baseline in vcpkg-configuration.json
 
-      - name: Configure with CMake
+      - name: Configure with CMake (MSYS2 shell)
+        shell: msys2 {0}
         run: |
           mkdir build
           cd build
-          cmake -G "MinGW Makefiles" -DCMAKE_TOOLCHAIN_FILE="${{ env.VCPKG_INSTALLATION_ROOT }}/scripts/buildsystems/vcpkg.cmake" -DVCPKG_TARGET_TRIPLET=x64-mingw-dynamic ../gtest_MinGW64_vscode_win_helloworld
+          cmake -G "MinGW Makefiles" \
+            -DCMAKE_TOOLCHAIN_FILE="${{ env.VCPKG_INSTALLATION_ROOT }}/scripts/buildsystems/vcpkg.cmake" \
+            -DVCPKG_TARGET_TRIPLET=x64-mingw-dynamic \
+            ../gtest_MinGW64_vscode_win_helloworld
 
-
-      
-      - name: Build with CMake
+      - name: Build with CMake (MSYS2 shell)
+        shell: msys2 {0}
         run: |
           cd build
           cmake --build .
-      
-      - name: Run tests
+
+      - name: Run tests (MSYS2 shell)
+        shell: msys2 {0}
         run: |
           cd build
           ctest -V
