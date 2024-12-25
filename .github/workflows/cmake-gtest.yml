@@ -56,9 +56,9 @@ jobs:
         cd build
         cmake --build . --config ${{env.BUILD_TYPE}}
 
-    - name: Run Test Binary
+    - name: Test
       shell: msys2 {0}
       run: |
         cd build
-        ./tests.exe
+        ctest -C ${{env.BUILD_TYPE}} --output-on-failure --verbose
   
