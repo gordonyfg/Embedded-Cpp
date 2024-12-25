@@ -2,10 +2,15 @@
 #include "LC167.h"
 
 TEST(LC167, ExampleTest) {
-    // Example test for LC167
-    Solution solution;
-    std::vector<int> nums = {2, 7, 11, 15};
+    std::vector<int> input = {2, 7, 11, 15};
     int target = 9;
-    std::vector<int> result = solution.twoSum(nums, target); // Assuming this is your function
-    ASSERT_EQ(result, std::vector<int>({1, 2}));
+    std::vector<int> expected = {1, 2};
+    EXPECT_EQ(twoSum(input, target), expected);
+}
+
+TEST(LC167, EdgeCaseTest) {
+    std::vector<int> input = {1, 2};
+    int target = 3;
+    std::vector<int> expected = {1, 2};
+    EXPECT_EQ(twoSum(input, target), expected);
 }
