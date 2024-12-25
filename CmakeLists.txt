@@ -7,12 +7,13 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Add main leetcode solutions library
+file(GLOB LEETCODE_SOURCES 
+    "src/*.cpp"
+    "src/leetcode/src/*.cpp"
+)
+
 add_library(leetcode_solutions STATIC
-    src/AccessLog.cpp
-    src/LRU.cpp
-    src/Merge_SLL.cpp
-    src/heap_stack.cpp
-    src/leetcode/src/LC167.cpp
+    ${LEETCODE_SOURCES}
 )
 
 # Include directories for leetcode solutions
@@ -24,9 +25,13 @@ target_include_directories(leetcode_solutions PUBLIC
 find_package(GTest REQUIRED)
 
 # Add tests executable
+file(GLOB TEST_SOURCES
+    "tests/gtest_helpers/*.cpp"
+    "tests/*.cpp"
+)
+
 add_executable(tests
-    tests/gtest_helpers/gtest_main.cpp
-    tests/test_LC167.cpp
+    ${TEST_SOURCES}
 )
 
 # Include directories for tests

@@ -8,7 +8,8 @@ Example
 4. heap_stack
 
 Leetcode
-1. LC167
+1. LC167 Two Sum II - Input Array Is Sorted
+2. LC653 Two Sum IV - Input is a BST
 
 2024-12-23 Folder Structure Explain
 To keep project structured and maintainable as i work through 
