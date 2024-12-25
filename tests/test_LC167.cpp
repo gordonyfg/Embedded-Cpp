@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "LC167.h"
+#include "Solution.h"
 
 TEST(LC167, ExampleTest) {
     Solution solution;

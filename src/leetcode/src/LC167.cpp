@@ -42,28 +42,28 @@ numbers is sorted in non-decreasing order.
 -1000 <= target <= 1000
 The tests are generated such that there is exactly one solution. */
 
-#include <iostream>
-#include <vector>
-using namespace std;
-#include "LC167.h"
+#include "Solution.h"
 
 // class Solution {
 // public:
     vector<int> Solution::twoSum(vector<int>& numbers, int target) {
-        vector<int> result = {0, 0};
         int left = 0;
-        int right = numbers.size()-1;
-        while(1){
-            if(numbers[left] + numbers[right] > target){
-                right-=1;
-            }else if(numbers[left] + numbers[right] < target){
-                left+=1;
-            }
-            else{
-                result = {left+1, right+1};
-                return result;
+        int right = numbers.size() - 1;
+        
+        // Ensure pointers don't go out of bounds
+        while (left < right) {
+            int sum = numbers[left] + numbers[right];
+            
+            if (sum == target) {
+                return {left + 1, right + 1}; // Found pair
+            } else if (sum < target) {
+                ++left; // Increase sum
+            } else {
+                --right; // Decrease sum
             }
         }
+        
+        return {}; // Return empty if no valid pair is found
     }
 // };
 

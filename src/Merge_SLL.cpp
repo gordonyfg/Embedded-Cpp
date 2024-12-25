@@ -1,6 +1,10 @@
 #include <iostream>
 
-// Implement the function mergeTwoLists that takes two pointers, l1 and l2, each pointing to the head of a sorted linked list. Merge these two linked lists in ascending order by node value. The function should return a pointer to the head of the merged and sorted linked list. The merging should be done in place with constant memory complexity.
+/* Implement the function mergeTwoLists that takes two pointers, 
+l1 and l2, each pointing to the head of a sorted linked list. 
+Merge these two linked lists in ascending order by node value. 
+The function should return a pointer to the head of the merged and sorted linked list. 
+The merging should be done in place with constant memory complexity. */
 
 struct ListNode {
     int val;
