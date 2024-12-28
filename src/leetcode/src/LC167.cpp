@@ -46,7 +46,7 @@ The tests are generated such that there is exactly one solution. */
 
 // class Solution {
 // public:
-    vector<int> Solution::twoSum(vector<int>& numbers, int target) {
+    vector<int> Solution::twoSumSorted(vector<int>& numbers, int target) {
         int left = 0;
         int right = numbers.size() - 1;
         

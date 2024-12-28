@@ -30,7 +30,7 @@ bool Solution::findTarget(TreeNode *root, int k)
     // }
     // std::cout << std::endl;
     
-    return !twoSum(listInordertraversal, k).empty();
+    return !twoSumSorted(listInordertraversal, k).empty();
 }
 
 // int main()
