@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <iostream>
+#include<unordered_map>
 using namespace std;
 
 //  * Definition for a binary tree node.
@@ -17,6 +18,7 @@ struct TreeNode {
 
 class Solution {
 public:
+    std::vector<int> twoSum(std::vector<int>& numbers, int target);
     std::vector<int> twoSumSorted(std::vector<int>& numbers, int target);
     bool findTarget(TreeNode *root, int k);
     void inorderTraversal(TreeNode *root, vector<int>& listInordertraversal);
