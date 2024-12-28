@@ -6,6 +6,7 @@
 #include<unordered_map>
 #include<unordered_set>
 #include<algorithm>
+#include <numeric>
 using namespace std;
 
 //  * Definition for a binary tree node.
@@ -25,6 +26,7 @@ public:
     bool findTarget(TreeNode *root, int k);
     void inorderTraversal(TreeNode *root, vector<int>& listInordertraversal);
     int lengthOfLongestSubstring(string s);
+    int maxSubArray(vector<int> &nums);
 };
 
 #endif // LEETCODE_SOLUTION_H
