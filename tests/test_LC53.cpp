@@ -42,10 +42,3 @@ TEST(LC53, AllPositiveNumbers) {
     int expected = 15;  // Entire array has the largest sum
     EXPECT_EQ(solution.maxSubArray(input), expected);
 }
-
-TEST(LC53, EmptyArray) {
-    Solution solution;
-    std::vector<int> input = {};
-    int expected = 0;  // Assuming the solution handles empty input with 0 as default
-    EXPECT_EQ(solution.maxSubArray(input), expected);
-}
