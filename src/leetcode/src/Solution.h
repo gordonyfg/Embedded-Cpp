@@ -4,6 +4,8 @@
 #include <vector>
 #include <iostream>
 #include<unordered_map>
+#include<unordered_set>
+#include<algorithm>
 using namespace std;
 
 //  * Definition for a binary tree node.
@@ -22,6 +24,7 @@ public:
     std::vector<int> twoSumSorted(std::vector<int>& numbers, int target);
     bool findTarget(TreeNode *root, int k);
     void inorderTraversal(TreeNode *root, vector<int>& listInordertraversal);
+    int lengthOfLongestSubstring(string s);
 };
 
 #endif // LEETCODE_SOLUTION_H
